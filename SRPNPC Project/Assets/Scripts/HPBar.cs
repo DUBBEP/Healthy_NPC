@@ -1,13 +1,15 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
     private Slider slider;
-
+    private TextMeshProUGUI nameText;
     private void Start()
     {
         slider = GetComponentInChildren<Slider>();
+        nameText = GetComponentInChildren<TextMeshProUGUI>();
         GetComponentInParent<IHealth>().OnHPPctChanged += HandleHPPctChanged;
     }
 
@@ -19,5 +21,6 @@ public class HPBar : MonoBehaviour
     void Update()
     {
         slider.transform.LookAt(Camera.main.transform);
+        nameText.transform.LookAt(Camera.main.transform);
     }
 }
